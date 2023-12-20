@@ -24,13 +24,13 @@ export const fetchTasksList = () => {
     .then(tasksList => tasksList.map(({ _id, ...task }) => ({ id: _id, ...task })));
 }
 
-export const updateTask = (taskId, taskData) => {
+export const updateTask = (taskId, taskTada) => {
   return fetch(`${baseUrl}/${taskId}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json;utc-8'
     },
-    body: JSON.stringify(taskData),
+    body: JSON.stringify(taskTada),
   }).then(response => {
     if (!response.ok) {
       throw new Error('Failed to udate task');
